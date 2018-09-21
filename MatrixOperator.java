@@ -15,7 +15,7 @@ public class MatrixOperator{
         //this.rows = rows;
         //this.columns = columns;
     }  
-    
+    //Commit testing
     //ERROR; no 4th column operations working for 3x4 matrices
     //found: matrix.length giving rows instead of columns. 
     //for 3x4 length should be 4, thus matrix.length + 1.
