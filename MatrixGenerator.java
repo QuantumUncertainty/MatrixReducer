@@ -20,7 +20,7 @@ public class MatrixGenerator {
         System.out.println("Random or custom matrix? Enter R for random or C for custom: ");
         choice = reader.nextLine();
         //still getting 3x3 instead of 3x4 matrices. either here or in print
-        if(matrix[1].length != matrix[0].length){
+        if(matrix.length != matrix[0].length){
             if(choice.equals("R") || choice.equals("r")){
                 for(int i = 0; i < matrix.length; i++){
                     for(int j = 0; j <= matrix.length; j++){
