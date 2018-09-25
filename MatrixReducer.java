@@ -28,7 +28,7 @@ public class MatrixReducer{
     public static void operate(double[][] matrix){
         Scanner reader = new Scanner(System.in);
         
-        MatrixOperator operator = new MatrixOperator(matrix);
+        MatrixOperator operator = new MatrixOperator(matrix, matrix.length, matrix[0].length);
         //necessary parameters for operations
         int row1, row2, rowToReplace, rowToMultiply, operation;
         double multiple;
@@ -101,8 +101,7 @@ public class MatrixReducer{
     }
     
     public static void printMatrix(double[][] matrix){        
-        //printing 3x3 insead of 3x4
-        if(matrix[1].length != matrix[0].length){
+        if(matrix.length != matrix[0].length){
             for(int i = 0; i < matrix.length; i++){
                 for(int j = 0; j <= matrix.length; j++){
                     System.out.print(matrix[i][j] + " ");                
