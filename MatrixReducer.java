@@ -12,6 +12,8 @@ public class MatrixReducer{
     /*
     TODO:     
     1) make program more robust
+    2) add direct row echelon form command
+    3) add direct reduced row echelon form command 
     */
     
     public static void main(String[] args) {             
