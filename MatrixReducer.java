@@ -10,10 +10,8 @@ import java.util.Scanner;
 
 public class MatrixReducer{   
     /*
-    TODO: 
-    1) fix handling error (can only handle [3,4]x[3,4] (due to hard coded manipulations in MatrixOperator) 
-    2) make printing look a bit nicer
-    3) make program more robust
+    TODO:     
+    1) make program more robust
     */
     
     public static void main(String[] args) {             
