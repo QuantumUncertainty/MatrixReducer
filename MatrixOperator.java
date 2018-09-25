@@ -7,21 +7,18 @@ package matrixreducer;
 
 public class MatrixOperator{   
     private final double[][] matrix;
-    //private final int rows;
-    //private final int columns;
+    private final int rows;
+    private final int columns;
     
-    public MatrixOperator(double[][] matrix){
+    public MatrixOperator(double[][] matrix, int rows, int columns){
         this.matrix = matrix;
-        //this.rows = rows;
-        //this.columns = columns;
+        this.rows = rows;
+        this.columns = columns;
     }  
-    //Commit testing
-    //ERROR; no 4th column operations working for 3x4 matrices
-    //found: matrix.length giving rows instead of columns. 
-    //for 3x4 length should be 4, thus matrix.length + 1.
+    
     public double[][] swapRows(double[][] matrix, int row1, int row2){
         //add more checks for nonsquare matrices, if matrix is square, no need for special checks
-        if(matrix[1].length != matrix[0].length){
+        if(this.rows != this.columns){
             double[] temp = new double[matrix.length + 1]; //to preserve matrix
         
             if(row1 == 1 && row2 == 2 || row1 == 2 && row2 == 1){
@@ -119,7 +116,7 @@ public class MatrixOperator{
     
     //capable of handling the case of straight addition, because multiple can = 1
     public double[][] addMultiple(double[][] matrix, int rowToReplace, double multiple, int row2){
-        if(matrix[1].length != matrix[0].length){
+        if(this.rows != this.columns){
             if(rowToReplace == 1 && row2 == 2){
                 for(int i = 0; i <= matrix.length; i++){
                     matrix[0][i] += (multiple * matrix[1][i]);
