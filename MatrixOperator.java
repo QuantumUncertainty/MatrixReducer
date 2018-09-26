@@ -19,7 +19,7 @@ public class MatrixOperator{
     public double[][] swapRows(double[][] matrix, int row1, int row2){
         //add more checks for nonsquare matrices, if matrix is square, no need for special checks
         if(this.rows != this.columns){
-            double[] temp = new double[matrix.length + 1]; //to preserve matrix
+            double[] temp = new double[matrix.length]; //to preserve matrix
         
             if(row1 == 1 && row2 == 2 || row1 == 2 && row2 == 1){
                 for(int i = 0; i <= matrix.length; i++){                

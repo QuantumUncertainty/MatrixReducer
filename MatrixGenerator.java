@@ -19,7 +19,8 @@ public class MatrixGenerator {
                
         System.out.println("Random or custom matrix? Enter R for random or C for custom: ");
         choice = reader.nextLine();
-        //still getting 3x3 instead of 3x4 matrices. either here or in print
+        
+        //discovered: bug is being caused by the for loop. Out of bounds exception for columns > rows
         if(matrix.length != matrix[0].length){
             if(choice.equals("R") || choice.equals("r")){
                 for(int i = 0; i < matrix.length; i++){
