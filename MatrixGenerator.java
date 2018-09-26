@@ -24,7 +24,7 @@ public class MatrixGenerator {
         if(matrix.length != matrix[0].length){
             if(choice.equals("R") || choice.equals("r")){
                 for(int i = 0; i < matrix.length; i++){
-                    for(int j = 0; j <= matrix.length; j++){
+                    for(int j = 0; j < matrix[0].length; j++){
                         matrix[i][j] = (double) generator.nextInt(10) + 1;
                     }
                 }
@@ -32,7 +32,7 @@ public class MatrixGenerator {
             else if(choice.equals("C") || choice.equals("c")){
                 System.out.println("Enter desired entries into matrix: ");
                 for(int i = 0; i < matrix.length; i++){
-                    for(int j = 0; j <= matrix.length; j++){
+                    for(int j = 0; j < matrix[0].length; j++){
                         matrix[i][j] = reader.nextInt();
                     }          
                 }
