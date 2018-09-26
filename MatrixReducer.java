@@ -12,8 +12,9 @@ public class MatrixReducer{
     /*
     TODO:     
     1) make program more robust
-    2) add direct row echelon form command
-    3) add direct reduced row echelon form command 
+    2) FOUND: 3x4 matrices and square matrices are working, but 4x3 and other types aren't
+    3) add direct row echelon form command
+    4) add direct reduced row echelon form command 
     */
     
     public static void main(String[] args) {             
