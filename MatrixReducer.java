@@ -12,7 +12,6 @@ public class MatrixReducer{
     /*
     TODO:     
     1) make program more robust
-    2) FOUND: 3x4 matrices and square matrices are working, but 4x3 and other types aren't
     3) add direct row echelon form command
     4) add direct reduced row echelon form command 
     */
@@ -20,7 +19,7 @@ public class MatrixReducer{
     public static void main(String[] args) {             
         //randomly filled matrix
         double[][] matrix1 = MatrixGenerator.newMatrix(matrixDims());       
-        //not getting correct operation check, probably bc this.columns not correct
+        
         System.out.println();
         printMatrix(matrix1);        
         operate(matrix1);              
