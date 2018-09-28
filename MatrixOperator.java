@@ -41,6 +41,7 @@ public class MatrixOperator{
     }
     
     public double[][] multiply(double[][] matrix, int row, double multiple){
+        row--;
         for(int i = 0; i < matrix.length; i++){
             matrix[row][i] = (multiple * matrix[row][i]);
         }
