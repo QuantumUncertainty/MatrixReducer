@@ -81,7 +81,7 @@ public class MatrixReducer{
     public static double[][] matrixDims(){
         Scanner reader = new Scanner(System.in);
         
-        System.out.println("Enter dimensions of matrix [0, 4][0, 4]: ");
+        System.out.println("Enter dimensions of matrix (M x N): ");
         System.out.println("Rows: ");
         int rows = reader.nextInt();
         System.out.println("Columns: ");
