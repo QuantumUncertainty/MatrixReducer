@@ -40,27 +40,9 @@ public class MatrixOperator{
         return matrix;
     }
     
-    //do latter changes here
     public double[][] multiply(double[][] matrix, int row, double multiple){
-        switch (row) {
-            case 1:
-                for(int i = 0; i < matrix.length; i++){
-                    matrix[0][i] = (multiple * matrix[0][i]);
-                }   break;
-            case 2:
-                for(int i = 0; i < matrix.length; i++){
-                    matrix[1][i] = (multiple * matrix[1][i]);
-                }   break;
-            case 3:
-                for(int i = 0; i < matrix.length; i++){
-                    matrix[2][i] = (multiple * matrix[2][i]);
-                }   break;
-            case 4:
-                for(int i = 0; i < matrix.length; i++){
-                    matrix[3][i] = (multiple * matrix[3][i]);
-                }   break;
-            default:
-                break;
+        for(int i = 0; i < matrix.length; i++){
+            matrix[row][i] = (multiple * matrix[row][i]);
         }
         
         return matrix;
