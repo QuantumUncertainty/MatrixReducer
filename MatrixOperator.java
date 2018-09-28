@@ -17,145 +17,15 @@ public class MatrixOperator{
     }  
     
     public double[][] swapRows(double[][] matrix, int row1, int row2){
-        if(this.rows != this.columns){
-            double[] temp = new double[matrix.length + 1]; //to preserve matrix (+1 may or may not be necessary)
-        
-            if(this.rows > this.columns){
-                if(row1 == 1 && row2 == 2 || row1 == 2 && row2 == 1){
-                    for(int i = 0; i < matrix[0].length; i++){                
-                        temp[i] = matrix[0][i];
-                        matrix[0][i] = matrix[1][i];
-                        matrix[1][i] = temp[i];
-                    }
-                }
-                else if(row1 == 2 && row2 == 3 || row1 == 3 && row2 == 2){
-                    for(int i = 0; i < matrix[0].length; i++){
-                        temp[i] = matrix[1][i];
-                        matrix[1][i] = matrix[2][i];
-                        matrix[2][i] = temp[i];
-                    }                       
-                }       
-                else if(row1 == 1 && row2 == 3 || row1 == 3 && row2 == 1){
-                    for(int i = 0; i < matrix[0].length; i++){
-                        temp[i] = matrix[0][i];
-                        matrix[0][i] = matrix[2][i];
-                        matrix[2][i] = temp[i];
-                    }            
-                }
-                else if(row1 == 1 && row2 == 4 || row1 == 4 && row2 == 1){
-                    for(int i = 0; i < matrix[0].length; i++){
-                        temp[i] = matrix[0][i];
-                        matrix[0][i] = matrix[3][i];
-                        matrix[3][i] = temp[i];
-                    }            
-                }
-                else if(row1 == 2 && row2 == 4 || row1 == 4 && row2 == 2){
-                    for(int i = 0; i < matrix[0].length; i++){
-                        temp[i] = matrix[1][i];
-                        matrix[1][i] = matrix[3][i];
-                        matrix[3][i] = temp[i];
-                    }            
-                }
-                else if(row1 == 3 && row2 == 4 || row1 == 4 && row2 == 3){
-                    for(int i = 0; i < matrix[0].length; i++){
-                        temp[i] = matrix[2][i];
-                        matrix[2][i] = matrix[3][i];
-                        matrix[3][i] = temp[i];
-                    }            
-                }
-            }
-            else{
-                if(row1 == 1 && row2 == 2 || row1 == 2 && row2 == 1){
-                    for(int i = 0; i <= matrix.length; i++){                
-                        temp[i] = matrix[0][i];
-                        matrix[0][i] = matrix[1][i];
-                        matrix[1][i] = temp[i];
-                    }
-                }        
-                else if(row1 == 2 && row2 == 3 || row1 == 3 && row2 == 2){
-                    for(int i = 0; i <= matrix.length; i++){
-                        temp[i] = matrix[1][i];
-                        matrix[1][i] = matrix[2][i];
-                        matrix[2][i] = temp[i];
-                    }                       
-                }       
-                else if(row1 == 1 && row2 == 3 || row1 == 3 && row2 == 1){
-                    for(int i = 0; i <= matrix.length; i++){
-                        temp[i] = matrix[0][i];
-                        matrix[0][i] = matrix[2][i];
-                        matrix[2][i] = temp[i];
-                    }            
-                }
-                else if(row1 == 1 && row2 == 4 || row1 == 4 && row2 == 1){
-                    for(int i = 0; i <= matrix.length; i++){
-                        temp[i] = matrix[0][i];
-                        matrix[0][i] = matrix[3][i];
-                        matrix[3][i] = temp[i];
-                    }            
-                }
-                else if(row1 == 2 && row2 == 4 || row1 == 4 && row2 == 2){
-                    for(int i = 0; i <= matrix.length; i++){
-                        temp[i] = matrix[1][i];
-                        matrix[1][i] = matrix[3][i];
-                        matrix[3][i] = temp[i];
-                    }            
-                }
-                else if(row1 == 3 && row2 == 4 || row1 == 4 && row2 == 3){
-                    for(int i = 0; i <= matrix.length; i++){
-                        temp[i] = matrix[2][i];
-                        matrix[2][i] = matrix[3][i];
-                        matrix[3][i] = temp[i];
-                    }            
-                }    
-            }
+        double[] temp = new double[matrix.length + 1]; //to preserve matrix (+1 may or may not be necessary)
+        row1--;
+        row2--;
+        for(int i = 0; i < matrix.length; i++){ 
+            temp[i] = matrix[row1][i];
+            matrix[row1][i] = matrix[row2][i];
+            matrix[row2][i] = temp[i];                         
         }
-        else{ //for square matrices
-            double[] temp = new double[matrix.length]; //to preserve matrix
-        
-            if(row1 == 1 && row2 == 2 || row1 == 2 && row2 == 1){
-                for(int i = 0; i < matrix.length; i++){                
-                    temp[i] = matrix[0][i];
-                    matrix[0][i] = matrix[1][i];
-                    matrix[1][i] = temp[i];
-                }
-            }        
-            else if(row1 == 2 && row2 == 3 || row1 == 3 && row2 == 2){
-                for(int i = 0; i < matrix.length; i++){
-                    temp[i] = matrix[1][i];
-                    matrix[1][i] = matrix[2][i];
-                    matrix[2][i] = temp[i];
-                }                       
-            }       
-            else if(row1 == 1 && row2 == 3 || row1 == 3 && row2 == 1){
-                for(int i = 0; i < matrix.length; i++){
-                    temp[i] = matrix[0][i];
-                    matrix[0][i] = matrix[2][i];
-                    matrix[2][i] = temp[i];
-                }            
-            }
-            else if(row1 == 1 && row2 == 4 || row1 == 4 && row2 == 1){
-                for(int i = 0; i < matrix.length; i++){
-                    temp[i] = matrix[0][i];
-                    matrix[0][i] = matrix[3][i];
-                    matrix[3][i] = temp[i];
-                }            
-            }
-            else if(row1 == 2 && row2 == 4 || row1 == 4 && row2 == 2){
-                for(int i = 0; i < matrix.length; i++){
-                    temp[i] = matrix[1][i];
-                    matrix[1][i] = matrix[3][i];
-                    matrix[3][i] = temp[i];
-                }            
-            }
-            else if(row1 == 3 && row2 == 4 || row1 == 4 && row2 == 3){
-                for(int i = 0; i < matrix.length; i++){
-                    temp[i] = matrix[2][i];
-                    matrix[2][i] = matrix[3][i];
-                    matrix[3][i] = temp[i];
-                }            
-            }    
-        }
-               
+                                     
         return matrix;
     }
     
