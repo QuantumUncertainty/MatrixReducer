@@ -17,19 +17,45 @@ public class MatrixReducer{
     */
     
     public static void main(String[] args) {             
-        //randomly filled matrix
-        double[][] matrix1 = MatrixGenerator.newMatrix(matrixDims());       
+        Scanner reader = new Scanner(System.in);      
+        int input;
         
-        System.out.println();
-        printMatrix(matrix1);        
-        operate(matrix1);              
+        showOptions();
+        input = reader.nextInt();
+        switch (input) {
+            case 1:
+                toReducedRowEchelonForm();
+                break;
+            case 2:
+                toRowEchelonForm();
+                break;
+            default:
+                interactiveReducer();
+                break;
+        }              
     }
     
-    public static void operate(double[][] matrix){
-        Scanner reader = new Scanner(System.in);
+    //handles to RREF
+    public static void toReducedRowEchelonForm(){
+        double[][] matrix = MatrixGenerator.newMatrix(matrixDims());
+        System.out.println("Initial matrix: ");
+        printMatrix(matrix);
         
+        
+    }
+    
+    //handles to REF
+    public static void toRowEchelonForm(){
+        
+    }
+    
+    //handles interactive matrix selection
+    public static void interactiveReducer(){
+        double[][] matrix = MatrixGenerator.newMatrix(matrixDims());
+        printMatrix(matrix);
+        
+        Scanner reader = new Scanner(System.in);
         MatrixOperator operator = new MatrixOperator(matrix, matrix.length, matrix[0].length);
-        //necessary parameters for operations
         int row1, row2, rowToReplace, rowToMultiply, operation;
         double multiple;
         
@@ -45,15 +71,19 @@ public class MatrixReducer{
                     row1 = reader.nextInt();
                     row2 = reader.nextInt();
                     operator.swapRows(matrix, row1, row2);
+                    System.out.println();
                     printMatrix(matrix);
                     break;
                 case 2:
                     System.out.println("Enter the row you want to replace: ");
                     rowToReplace = reader.nextInt();
+                    System.out.println();
                     System.out.println("Enter the number to multiply by and the row to multiply: ");
                     multiple = reader.nextDouble();
                     rowToMultiply = reader.nextInt();
+                    System.out.println();
                     operator.addMultiple(matrix, rowToReplace, multiple, rowToMultiply);
+                    System.out.println();
                     printMatrix(matrix);
                     break;
                 case 3:
@@ -91,7 +121,15 @@ public class MatrixReducer{
         double dimensions[][] = new double[rows][columns];
         return dimensions;
     }
-        
+
+    public static void showOptions(){
+        System.out.println("Things I can do: (use shown numbers to navigate)");
+        System.out.println("1) Go directly to reduced row echelon form");
+        System.out.println("2) Go directly to row echelon form");
+        System.out.println("3) Interactive operations");
+        System.out.println();
+    }
+
     public static void showOperations(){
         System.out.println("Possible row operations: ");
         System.out.println("1) Swap two rows");
