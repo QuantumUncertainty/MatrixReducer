@@ -12,8 +12,9 @@ public class MatrixReducer{
     /*
     TODO:     
     1) make program more robust
-    3) add direct row echelon form command
-    4) add direct reduced row echelon form command 
+    2) add direct row echelon form command
+    3) add direct reduced row echelon form command 
+    4) add unit testing
     */
     
     public static void main(String[] args) {             
@@ -35,7 +36,7 @@ public class MatrixReducer{
         }              
     }
     
-    //handles to RREF
+    //handles to RREF (coming soon)
     public static void toReducedRowEchelonForm(){
         double[][] matrix = MatrixGenerator.newMatrix(matrixDims());
         System.out.println("Initial matrix: ");
@@ -44,7 +45,7 @@ public class MatrixReducer{
         
     }
     
-    //handles to REF
+    //handles to REF (coming soon)
     public static void toRowEchelonForm(){
         
     }
