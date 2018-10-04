@@ -54,6 +54,7 @@ public class MatrixReducer{
     public static void toReducedRowEchelonForm(){
         double[][] matrix = MatrixGenerator.newMatrix(matrixDims());
         MatrixOperator operator = new MatrixOperator(matrix, matrix.length, matrix[0].length);
+        System.out.println();
         System.out.println("Initial matrix: ");
         printMatrix(matrix);
         
@@ -70,11 +71,13 @@ public class MatrixReducer{
             }
             
             operator.putZerosInRemainingEntries(matrix, column);
+            System.out.println("Matrix after iteration " + row + ": ");
             printMatrix(matrix);
             column++;   
             row++;  
         } 
         
+        System.out.println("Result: ");
         printMatrix(matrix);
     }
     
