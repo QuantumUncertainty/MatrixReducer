@@ -14,9 +14,7 @@ public class MatrixReducer{
     1) make program more robust
     2) add direct row echelon form command
     3) add direct reduced row echelon form command 
-    4) add unit testing
-    */
-    
+    */    
     public static void main(String[] args) {             
         Scanner reader = new Scanner(System.in);      
         int input;
@@ -33,19 +31,54 @@ public class MatrixReducer{
             default:
                 interactiveReducer();
                 break;
-        }              
+        }
+    }
+   
+    //handles initial inputs and what not
+    public static double[][] matrixDims(){
+        Scanner reader = new Scanner(System.in);
+        
+        System.out.println();
+        System.out.println("Enter dimensions of matrix (M x N)");
+        System.out.println("Rows: ");
+        int rows = reader.nextInt();
+        System.out.println("Columns: ");
+        int columns = reader.nextInt();
+        System.out.println();
+        
+        double dimensions[][] = new double[rows][columns];
+        return dimensions;
     }
     
-    //handles to RREF (coming soon)
+    //handles to RREF
     public static void toReducedRowEchelonForm(){
         double[][] matrix = MatrixGenerator.newMatrix(matrixDims());
+        MatrixOperator operator = new MatrixOperator(matrix, matrix.length, matrix[0].length);
         System.out.println("Initial matrix: ");
         printMatrix(matrix);
         
+        int row = 0, column = 0;
+        double multiple = 0.0;
+        //more or less working, final column not getting hit
+        while(row < matrix.length){
+            if(matrix[row][column] == 0){
+                operator.swapRows(matrix, row, row + 1);
+            }
+            else if(matrix[row][column] != 0 && matrix[row][column] != 1){
+                multiple = 1.0/matrix[row][column];
+                operator.multiply(matrix, row, multiple);
+            }
+            
+            operator.putZerosInRemainingEntries(matrix, column);
+            printMatrix(matrix);
+            column++;   
+            row++;  
+        } 
         
+        printMatrix(matrix);
     }
     
-    //handles to REF (coming soon)
+    //handles to REF
     public static void toRowEchelonForm(){
         
     }
@@ -69,19 +102,19 @@ public class MatrixReducer{
             switch(operation){
                 case 1:
                     System.out.println("Enter number of 2 rows to swap: ");
-                    row1 = reader.nextInt();
-                    row2 = reader.nextInt();
+                    row1 = reader.nextInt() - 1;
+                    row2 = reader.nextInt() - 1;
                     operator.swapRows(matrix, row1, row2);
                     System.out.println();
                     printMatrix(matrix);
                     break;
                 case 2:
                     System.out.println("Enter the row you want to replace: ");
-                    rowToReplace = reader.nextInt();
+                    rowToReplace = reader.nextInt() - 1;
                     System.out.println();
                     System.out.println("Enter the number to multiply by and the row to multiply: ");
                     multiple = reader.nextDouble();
-                    rowToMultiply = reader.nextInt();
+                    rowToMultiply = reader.nextInt() - 1;
                     System.out.println();
                     operator.addMultiple(matrix, rowToReplace, multiple, rowToMultiply);
                     System.out.println();
@@ -89,7 +122,7 @@ public class MatrixReducer{
                     break;
                 case 3:
                     System.out.println("Enter the row you want to multiply: ");
-                    rowToMultiply = reader.nextInt();
+                    rowToMultiply = reader.nextInt() - 1;
                     System.out.println("Enter the number you want to multiply by: ");
                     multiple = reader.nextDouble();
                     operator.multiply(matrix, rowToMultiply, multiple);
@@ -107,35 +140,20 @@ public class MatrixReducer{
             System.out.println();
         }              
     }
-    
-    //handles initial inputs and what not
-    public static double[][] matrixDims(){
-        Scanner reader = new Scanner(System.in);
         
-        System.out.println("Enter dimensions of matrix (M x N): ");
-        System.out.println("Rows: ");
-        int rows = reader.nextInt();
-        System.out.println("Columns: ");
-        int columns = reader.nextInt();
-        System.out.println();
-        
-        double dimensions[][] = new double[rows][columns];
-        return dimensions;
-    }
-
-    public static void showOptions(){
-        System.out.println("Things I can do: (use shown numbers to navigate)");
-        System.out.println("1) Go directly to reduced row echelon form");
-        System.out.println("2) Go directly to row echelon form");
-        System.out.println("3) Interactive operations");
-        System.out.println();
-    }
-
     public static void showOperations(){
         System.out.println("Possible row operations: ");
         System.out.println("1) Swap two rows");
         System.out.println("2) Add a multiple of one row to another");
         System.out.println("3) Multiply a row by a nonzero integer/rational");
+        System.out.println();
+    }
+    
+    public static void showOptions(){
+        System.out.println("Things I can do: (use shown numbers to navigate)");
+        System.out.println("1) Go directly to reduced row echelon form");
+        System.out.println("2) Go directly to row echelon form");
+        System.out.println("3) Interactive operations");
         System.out.println();
     }
     
