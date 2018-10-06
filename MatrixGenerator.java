@@ -23,9 +23,8 @@ public class MatrixGenerator {
                 }
             }
         }
-        //FOUND: not working properly
         else if(choice.equals("C") || choice.equals("c")){
-            System.out.println("Enter choices into matrix: ")
+            System.out.println("Enter choices into matrix by row: ")
             for(int i = 0; i < matrix.length; i++){
                 for(int j = 0; j < matrix[0].length; j++){
                     matrix[i][j] = (double) reader.nextInt();
