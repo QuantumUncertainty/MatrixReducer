@@ -13,7 +13,6 @@ public class MatrixReducer{
     TODO:     
     1) make program more robust
     2) add direct row echelon form command
-    3) add direct reduced row echelon form command 
     */    
     public static void main(String[] args) {             
         Scanner reader = new Scanner(System.in);      
@@ -60,7 +59,7 @@ public class MatrixReducer{
         
         int row = 0, column = 0;
         double multiple = 0.0;
-        //more or less working, final column not getting hit
+        //more or less working, final column doesn't seem to be getting correct values
         while(row < matrix.length){
             if(matrix[row][column] == 0){
                 operator.swapRows(matrix, row, row + 1);
