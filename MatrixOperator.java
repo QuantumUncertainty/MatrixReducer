@@ -11,6 +11,7 @@ public class MatrixOperator{
         this.columns = columns;
     }  
     
+    //discovered: Final columns not getting operated on
     public double[][] swapRows(double[][] matrix, int row1, int row2){       
         double[] temp = new double[matrix.length + 1]; //to preserve matrix (+1 may or may not be necessary)
        
@@ -23,6 +24,7 @@ public class MatrixOperator{
         return matrix;
     }
     
+    //discovered: Final columns not getting operated on 
     //capable of handling the case of straight addition, because multiple can = 1
     public double[][] addMultiple(double[][] matrix, int rowToReplace, double multiple, int row2){        
         for(int i = 0; i < matrix.length; i++){
