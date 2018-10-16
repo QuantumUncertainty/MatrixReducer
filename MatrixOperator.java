@@ -41,6 +41,7 @@ public class MatrixOperator{
     } 
     
     //FIX: final column not getting hit
+    //Discovered: need to do the operation on the entire row, not just the nonzero column entries
     public double[][] putZerosInRemainingEntries(double[][] matrix, int column){
         double multiple;
         for(int i = 0; i < matrix.length; i++){
