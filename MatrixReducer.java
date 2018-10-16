@@ -57,25 +57,26 @@ public class MatrixReducer{
         System.out.println("Initial matrix: ");
         printMatrix(matrix);
         
-        int row = 0, column = 0;
-        double multiple = 0.0;
-        //more or less working, final column doesn't seem to be getting correct values
+        int row = 0, column = 0, pivotRow = 0;
+        double multiple;
+        
         while(row < matrix.length){
             if(matrix[row][column] == 0){
                 operator.swapRows(matrix, row, row + 1);
             }
-            else if(matrix[row][column] != 0 && matrix[row][column] != 1){
-                multiple = 1.0/matrix[row][column];
+            else if(matrix[row][column] != 0 && matrix[row][column] != 1){                
+                multiple = 1.0/matrix[row][column];                
                 operator.multiply(matrix, row, multiple);
+                pivotRow = row;
             }
             
-            operator.putZerosInRemainingEntries(matrix, column);
-            System.out.println("Matrix after iteration " + row + ": ");
+            operator.putZerosInRemainingEntries(matrix, pivotRow);
+            System.out.println("Matrix after iteration " + row);
             printMatrix(matrix);
             column++;   
             row++;  
-        } 
-        
+        }     
+                
         System.out.println("Result: ");
         printMatrix(matrix);
     }
