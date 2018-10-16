@@ -40,14 +40,15 @@ public class MatrixOperator{
         return matrix;
     } 
     
-    //FIX: final column not getting hit
-    //Discovered: need to do the operation on the entire row, not just the nonzero column entries
-    public double[][] putZerosInRemainingEntries(double[][] matrix, int column){
+    //does row operation II to get 0's beneath pivot entries
+    public double[][] putZerosInRemainingEntries(double[][] matrix, int pivotRow){
         double multiple;
-        for(int i = 0; i < matrix.length; i++){
-            if(matrix[i][column] != 0 && matrix[i][column] != 1){
-                multiple = -(matrix[i][column]);
-                matrix[i][column] += multiple;
+        for(int i = 0; i < this.rows; i++){ 
+            if(i != pivotRow){
+                multiple = -(matrix[i][pivotRow]);
+                for(int j = 0; j < this.columns; j++){
+                    matrix[i][j] += (multiple * matrix[pivotRow][j]);
+                }
             }
         }
         
