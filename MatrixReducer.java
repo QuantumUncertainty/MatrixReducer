@@ -160,7 +160,16 @@ public class MatrixReducer{
         System.out.println();
     }
     
-    public static void printMatrix(double[][] matrix){        
+    public static void printMatrix(double[][] matrix){     
+        //to get rid of - sign in front of 0's
+        for(int i = 0; i < matrix.length; i++){
+            for(int j = 0; j < matrix[0].length; j++){
+                if(matrix[i][j] == -0.0){
+                    matrix[i][j] = 0.0;
+                }
+            }
+        }
+
         for (double[] matrix1 : matrix) {
             for (int j = 0; j < matrix[0].length; j++) {
                 System.out.print(matrix1[j] + " ");                
