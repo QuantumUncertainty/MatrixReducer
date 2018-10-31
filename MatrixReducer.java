@@ -50,6 +50,7 @@ public class MatrixReducer{
     }
     
     //handles to RREF
+    //DISCOVERED: non square matrices aren't getting completely reduced to RREF
     public static void toReducedRowEchelonForm(){
         double[][] matrix = MatrixGenerator.newMatrix(matrixDims());
         MatrixOperator operator = new MatrixOperator(matrix, matrix.length, matrix[0].length);
