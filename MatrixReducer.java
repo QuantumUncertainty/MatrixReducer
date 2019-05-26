@@ -2,7 +2,7 @@
  * Description: A program that reduces matrices per your row operation commands. 
  * The result of each operation is printed before another operation is performed.
  * Coming soon: GUI version of program, addition of features that allow the user to
- * go directly to row-echelon and reduced row-echelon form.
+ * go directly to row-echelon form.
 */ 
 package matrixreducer;
 
