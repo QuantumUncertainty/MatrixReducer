@@ -1,7 +1,6 @@
-package matrixreducer.tests;
-import matrixreducer.MatrixGenerator;
-import matrixreducer.MatrixReducer;
-import org.junit.*;
+package matrixtools.tests;
+import matrixtools.MatrixReducer;
+
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
 class MatrixReducerTest {

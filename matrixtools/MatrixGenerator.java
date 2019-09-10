@@ -1,4 +1,4 @@
-package matrixreducer;
+package matrixtools;
 
 import java.util.Random;
 import java.util.Scanner;

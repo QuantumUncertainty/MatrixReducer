@@ -1,4 +1,4 @@
-package matrixreducer;
+package matrixtools;
 
 public interface MatrixOperations {
     public int determinant(double[][] matrix);

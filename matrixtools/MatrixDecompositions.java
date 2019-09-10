@@ -1,4 +1,4 @@
-package matrixreducer;
+package matrixtools;
 
 public interface MatrixDecompositions {
     public double[] getEigenvalues(double[][] matrix);
