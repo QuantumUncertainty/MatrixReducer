@@ -13,21 +13,21 @@ public class MatrixReducer implements MatrixReductions {
         this.columns = columns;
     }
 
-    public double[][] toReducedRowEchelonForm(double[][] matrix){
+    public double[][] toReducedRowEchelonForm(){
         int row = 0, column = 0, pivotRow = 0;
         double multiple;
 
         while(row < matrix.length){
             if(matrix[row][column] == 0){
-                swapRows(matrix, row, row + 1);
+                swapRows(row, row + 1);
             }
             else if(matrix[row][column] != 0 && matrix[row][column] != 1){
                 multiple = 1.0/matrix[row][column];
-                multiply(matrix, row, multiple);
+                multiply(row, multiple);
                 pivotRow = row;
             }
 
-            putZerosInRemainingEntries(matrix, pivotRow);
+            putZerosInRemainingEntries(pivotRow);
             column++;
             row++;
         }
@@ -35,22 +35,22 @@ public class MatrixReducer implements MatrixReductions {
         return matrix;
     }
 
-    public double[][] toRowEchelonForm(double[][] matrix){
+    public double[][] toRowEchelonForm(){
         throw new NotImplementedException();
     }
 
-    public double[][] toUpperTriangular(double[][] matrix){
+    public double[][] toUpperTriangular(){
         throw new NotImplementedException();
     }
 
-    public double[][] toLowerTriangular(double[][] matrix){
+    public double[][] toLowerTriangular(){
         throw new NotImplementedException();
     }
 
-    public double[][] swapRows(double[][] matrix, int row1, int row2){
-        double[] temp = new double[this.columns];
+    public double[][] swapRows(int row1, int row2){
+        double[] temp = new double[columns];
 
-        for(int i = 0; i < this.columns; i++){
+        for(int i = 0; i < columns; i++){
             temp[i] = matrix[row1][i];
             matrix[row1][i] = matrix[row2][i];
             matrix[row2][i] = temp[i];
@@ -60,16 +60,16 @@ public class MatrixReducer implements MatrixReductions {
     }
 
     //capable of handling the case of straight addition, because multiple can = 1
-    public double[][] addMultiple(double[][] matrix, int rowToReplace, double multiple, int row2){
-        for(int i = 0; i < this.columns; i++){
+    public double[][] addMultiple(int rowToReplace, double multiple, int row2){
+        for(int i = 0; i < columns; i++){
             matrix[rowToReplace][i] += (multiple * matrix[row2][i]);
         }
 
         return matrix;
     }
 
-    public double[][] multiply(double[][] matrix, int row, double multiple){
-        for(int i = 0; i < this.columns; i++){
+    public double[][] multiply(int row, double multiple){
+        for(int i = 0; i < columns; i++){
             matrix[row][i] = (multiple * matrix[row][i]);
         }
 
@@ -77,12 +77,12 @@ public class MatrixReducer implements MatrixReductions {
     }
 
     //does row operation II to get 0's beneath pivot entries
-    public double[][] putZerosInRemainingEntries(double[][] matrix, int pivotRow){
+    public double[][] putZerosInRemainingEntries(int pivotRow){
         double multiple;
-        for(int i = 0; i < this.rows; i++){
+        for(int i = 0; i < rows; i++){
             if(i != pivotRow){
                 multiple = -(matrix[i][pivotRow]);
-                for(int j = 0; j < this.columns; j++){
+                for(int j = 0; j < columns; j++){
                     matrix[i][j] += (multiple * matrix[pivotRow][j]);
                 }
             }
