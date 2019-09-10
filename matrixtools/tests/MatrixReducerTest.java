@@ -1,5 +1,5 @@
 package matrixtools.tests;
-import matrixtools.MatrixReducer;
+import matrixtools.implementations.MatrixReducer;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 

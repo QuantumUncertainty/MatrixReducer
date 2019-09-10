@@ -4,7 +4,7 @@
  * Coming soon: GUI version of program, addition of features that allow the user to
  * go directly to row-echelon form.
 */ 
-package matrixtools;
+package matrixtools.implementations;
 
 import java.util.Scanner;
 

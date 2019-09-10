@@ -1,4 +1,4 @@
-package matrixtools;
+package matrixtools.interfaces;
 
 public interface MatrixReductions {
     public double[][] toReducedRowEchelonForm(double[][] matrix);

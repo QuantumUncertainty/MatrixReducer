@@ -1,4 +1,5 @@
-package matrixtools;
+package matrixtools.implementations;
+import matrixtools.interfaces.MatrixReductions;
 import sun.reflect.generics.reflectiveObjects.NotImplementedException;
 
 public class MatrixReducer implements MatrixReductions {

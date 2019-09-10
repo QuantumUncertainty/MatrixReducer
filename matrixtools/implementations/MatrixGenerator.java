@@ -1,4 +1,4 @@
-package matrixtools;
+package matrixtools.implementations;
 
 import java.util.Random;
 import java.util.Scanner;
