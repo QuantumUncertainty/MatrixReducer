@@ -1,10 +1,11 @@
 package matrixtools.interfaces;
 
 public interface MatrixOperations {
-    public int determinant();
+    public double determinant();
     public double[][] transpose();
     public double[][] inverse();
-    public int norm();
-    public int trace();
+    public double matrixNorm();
+    public double lpNorm();
+    public double trace();
     //more operations coming
 }
