@@ -12,8 +12,8 @@ public class MatrixOperator implements MatrixOperations {
         this.columns = columns;
     }
     @Override
-    public int determinant() {
-        return 0;
+    public double determinant() {
+        return 0.0;
     }
 
     @Override
@@ -34,13 +34,25 @@ public class MatrixOperator implements MatrixOperations {
         return null;
     }
 
+    //need to test
     @Override
-    public int norm() {
-        return 0;
+    public double matrixNorm() {
+        double sum = 0.0;
+        for(int i = 0; i < matrix.length; i++){
+            for(int j = 0; j < matrix[0].length; j++){
+                sum += Math.pow(matrix[i][j], 2.0);
+            }
+        }
+
+        return Math.sqrt(sum);
+    }
+
+    public double lpNorm(){
+        return 0.0;
     }
 
     @Override
-    public int trace() {
+    public double trace() {
         return 0;
     }
 }
