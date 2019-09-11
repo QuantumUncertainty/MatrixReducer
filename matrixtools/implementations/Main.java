@@ -75,9 +75,10 @@ public class Main {
             case 3:
                 System.out.println("1) Transpose");
                 System.out.println("2) Determinant");
-                System.out.println("3) Norm");
-                System.out.println("4) Trace");
-                System.out.println("5) Inverse");
+                System.out.println("3) Matrix norm");
+                System.out.println("4) Lp Norm");
+                System.out.println("5) Trace");
+                System.out.println("6) Inverse");
 
                 input = reader.nextInt();
                 switch(input){
@@ -88,12 +89,15 @@ public class Main {
                         determinant();
                         break;
                     case 3:
-                        norm();
+                        matrixNorm();
                         break;
                     case 4:
-                        trace();
+                        lpNorm();
                         break;
                     case 5:
+                        trace();
+                        break;
+                    case 6:
                         inverse();
                         break;
                     default: break;
@@ -187,13 +191,14 @@ public class Main {
     }
 
     //TODO
+    public static void matrixNorm(){}
     public static void inverse(){}
     public static void eigendecomposition(){}
     public static void luDecomposition(){}
     public static void choleskyDecomposition(){}
     public static void determinant(){}
     public static void trace(){}
-    public static void norm(){}
+    public static void lpNorm(){}
 
     //handles initial inputs and what not
     public static double[][] matrixDims(){
