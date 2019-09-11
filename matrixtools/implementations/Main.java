@@ -14,70 +14,10 @@ public class Main {
     TODO:     
     1) make program more robust
     2) add direct row echelon form command
+    3) place user interface code in a separate project and use the linear algebra code as a library
     */    
     public static void main(String[] args) {showOptions();}
 
-    //handles interactive matrix selection
-    public static void interactiveReducer(){
-        /*
-        double[][] matrix = MatrixGenerator.newMatrix(matrixDims());
-        printMatrix(matrix);
-        
-        Scanner reader = new Scanner(System.in);
-        MatrixOperator operator = new MatrixOperator(matrix, matrix.length, matrix[0].length);
-        int row1, row2, rowToReplace, rowToMultiply, operation;
-        double multiple;
-        
-        showOperations();
-        System.out.println("Enter 4 to show operations");
-        System.out.println("Enter the number of the row operation you want me to perform or 0 to quit: ");
-        operation = reader.nextInt();
-        
-        while(operation != 0){
-            switch(operation){
-                case 1:
-                    System.out.println("Enter number of 2 rows to swap: ");
-                    row1 = reader.nextInt() - 1;
-                    row2 = reader.nextInt() - 1;
-                    operator.swapRows(matrix, row1, row2);
-                    System.out.println();
-                    printMatrix(matrix);
-                    break;
-                case 2:
-                    System.out.println("Enter the row you want to replace: ");
-                    rowToReplace = reader.nextInt() - 1;
-                    System.out.println();
-                    System.out.println("Enter the number to multiply by and the row to multiply: ");
-                    multiple = reader.nextDouble();
-                    rowToMultiply = reader.nextInt() - 1;
-                    System.out.println();
-                    operator.addMultiple(matrix, rowToReplace, multiple, rowToMultiply);
-                    System.out.println();
-                    printMatrix(matrix);
-                    break;
-                case 3:
-                    System.out.println("Enter the row you want to multiply: ");
-                    rowToMultiply = reader.nextInt() - 1;
-                    System.out.println("Enter the number you want to multiply by: ");
-                    multiple = reader.nextDouble();
-                    operator.multiply(matrix, rowToMultiply, multiple);
-                    printMatrix(matrix);
-                    break;
-                case 4:
-                    showOperations();
-                    break;
-                default:
-                    break;
-            }
-
-            System.out.println("Enter the number of the row operation you want me to perform or 0 to quit: ");
-            operation = reader.nextInt();
-            System.out.println();
-
-        }
-
-         */
-    }
 
     public static void showOperations(){
         System.out.println("Possible row operations: ");
@@ -150,11 +90,69 @@ public class Main {
                 }
                 break;
             default:
-                System.out.println("Please try again")  ;
+                System.out.println("Please try again");
                 break;
         }
 
         System.out.println();
+    }
+
+    public static void interactiveReducer() {
+        double[][] matrix = MatrixGenerator.newMatrix(matrixDims());
+        printMatrix(matrix);
+
+        Scanner reader = new Scanner(System.in);
+        MatrixReducer reducer = new MatrixReducer(matrix, matrix.length, matrix[0].length);
+        int row1, row2, rowToReplace, rowToMultiply, operation;
+        double multiple;
+
+        showOperations();
+        System.out.println("Enter 4 to show operations");
+        System.out.println("Enter the number of the row operation you want me to perform or 0 to quit: ");
+        operation = reader.nextInt();
+
+        while (operation != 0) {
+            switch (operation) {
+                case 1:
+                    System.out.println("Enter number of 2 rows to swap: ");
+                    row1 = reader.nextInt() - 1; //- 1 to account for 0 based matrix while allowing natural inputs
+                    row2 = reader.nextInt() - 1;
+                    reducer.swapRows(row1, row2);
+                    System.out.println();
+                    printMatrix(matrix);
+                    break;
+                case 2:
+                    System.out.println("Enter the row you want to replace: ");
+                    rowToReplace = reader.nextInt() - 1;
+                    System.out.println();
+                    System.out.println("Enter the number to multiply by and the row to multiply: ");
+                    multiple = reader.nextDouble();
+                    rowToMultiply = reader.nextInt() - 1;
+                    System.out.println();
+                    reducer.addMultiple(rowToReplace, multiple, rowToMultiply);
+                    System.out.println();
+                    printMatrix(matrix);
+                    break;
+                case 3:
+                    System.out.println("Enter the row you want to multiply: ");
+                    rowToMultiply = reader.nextInt() - 1;
+                    System.out.println("Enter the number you want to multiply by: ");
+                    multiple = reader.nextDouble();
+                    reducer.multiply(rowToMultiply, multiple);
+                    printMatrix(matrix);
+                    break;
+                case 4:
+                    showOperations();
+                    break;
+                default:
+                    break;
+            }
+
+            System.out.println("Enter the number of the row operation you want me to perform or 0 to quit: ");
+            operation = reader.nextInt();
+            System.out.println();
+
+        }
     }
 
     //DISCOVERED: non square matrices aren't getting completely reduced to RREF
