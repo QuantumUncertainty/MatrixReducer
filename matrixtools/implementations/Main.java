@@ -6,6 +6,8 @@
 */ 
 package matrixtools.implementations;
 
+import matrixtools.interfaces.MatrixOperations;
+
 import java.util.Scanner;
 
 //provides a basic user interface to demonstrate the library
@@ -17,7 +19,6 @@ public class Main {
     3) place user interface code in a separate project and use the linear algebra code as a library
     */    
     public static void main(String[] args) {showOptions();}
-
 
     public static void showOperations(){
         System.out.println("Possible row operations: ");
@@ -72,19 +73,28 @@ public class Main {
                 }
                 break;
             case 3:
-                System.out.println("1) Determinant");
-                System.out.println("2) Norm");
-                System.out.println("3) Trace");
+                System.out.println("1) Transpose");
+                System.out.println("2) Determinant");
+                System.out.println("3) Norm");
+                System.out.println("4) Trace");
+                System.out.println("5) Inverse");
+
                 input = reader.nextInt();
                 switch(input){
                     case 1:
-                        determinant();
+                        transpose();
                         break;
                     case 2:
-                        norm();
+                        determinant();
                         break;
                     case 3:
+                        norm();
+                        break;
+                    case 4:
                         trace();
+                        break;
+                    case 5:
+                        inverse();
                         break;
                     default: break;
                 }
@@ -168,7 +178,16 @@ public class Main {
     public static void toRowEchelonForm(){
 
     }
+
+    public static void transpose(){
+        double[][] matrix = MatrixGenerator.newMatrix(matrixDims());
+        printMatrix(matrix);
+        MatrixOperator operator = new MatrixOperator(matrix, matrix.length, matrix[0].length);
+        printMatrix(operator.transpose());
+    }
+
     //TODO
+    public static void inverse(){}
     public static void eigendecomposition(){}
     public static void luDecomposition(){}
     public static void choleskyDecomposition(){}
