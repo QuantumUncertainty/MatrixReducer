@@ -7,6 +7,8 @@ About:
 Current Features:
   (1) Reduces a random or custom matrix given a user's command
   (2) Reduces a matrix directly to reduced row echelon form
+  (3) Transpose and norm of a matrix
+
 
 
 
