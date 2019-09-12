@@ -34,7 +34,7 @@ public class MatrixOperator implements MatrixOperations {
         return null;
     }
 
-    //need to test
+    //need to test and add precision
     @Override
     public double matrixNorm() {
         double sum = 0.0;
