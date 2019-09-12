@@ -178,20 +178,25 @@ public class Main {
         printMatrix(matrix);
     }
 
-    //handles to REF
-    public static void toRowEchelonForm(){
-
-    }
+    public static void toRowEchelonForm(){}
 
     public static void transpose(){
         double[][] matrix = MatrixGenerator.newMatrix(matrixDims());
         printMatrix(matrix);
         MatrixOperator operator = new MatrixOperator(matrix, matrix.length, matrix[0].length);
+        System.out.println("Transpose: ");
         printMatrix(operator.transpose());
     }
 
+    public static void matrixNorm(){
+        double[][] matrix = MatrixGenerator.newMatrix(matrixDims());
+        printMatrix(matrix);
+        MatrixOperator operator = new MatrixOperator(matrix, matrix.length, matrix[0].length);
+        System.out.println("Matrix norm: ");
+        System.out.println(operator.matrixNorm());
+    }
+
     //TODO
-    public static void matrixNorm(){}
     public static void inverse(){}
     public static void eigendecomposition(){}
     public static void luDecomposition(){}
