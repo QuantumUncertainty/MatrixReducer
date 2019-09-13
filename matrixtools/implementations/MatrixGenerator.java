@@ -3,7 +3,6 @@ package matrixtools.implementations;
 import java.util.Random;
 import java.util.Scanner;
 
-
 public class MatrixGenerator { 
     private MatrixGenerator(){}
     
@@ -29,6 +28,7 @@ public class MatrixGenerator {
                 for(int j = 0; j < matrix[0].length; j++){
                     matrix[i][j] = (double) reader.nextInt();
                 }
+                if(i < matrix.length - 1) System.out.println("Next row: ");
             }
         }
         
