@@ -67,7 +67,11 @@ public class MatrixOperator implements MatrixOperations {
 
     @Override
     public double trace() {
-        return 0;
+        double trace = 0.0;
+        for(int i = 0; i < rows; i++){
+            trace += matrix[i][i];
+        }
+        return trace;
     }
 
     private double pthRoot(double base, int p){
