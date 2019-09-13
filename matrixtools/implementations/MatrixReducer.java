@@ -17,7 +17,7 @@ public class MatrixReducer implements MatrixReductions {
         int row = 0, column = 0, pivotRow = 0;
         double multiple;
 
-        while(row < matrix.length){
+        while(row < rows){
             if(matrix[row][column] == 0){
                 swapRows(row, row + 1);
             }
@@ -47,6 +47,7 @@ public class MatrixReducer implements MatrixReductions {
         throw new NotImplementedException();
     }
 
+    //this method is giving an error for custom matrices
     public double[][] swapRows(int row1, int row2){
         double[] temp = new double[columns];
 
