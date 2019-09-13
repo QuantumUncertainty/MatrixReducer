@@ -206,6 +206,13 @@ public class Main {
         int input = reader.nextInt();
         System.out.println(operator.lpNorm(input));
     }
+    public static void trace(){
+        double[][] matrix = MatrixGenerator.newMatrix(matrixDims());
+        printMatrix(matrix);
+        MatrixOperator operator = new MatrixOperator(matrix, matrix.length, matrix[0].length);
+        System.out.println("Trace: ");
+        System.out.println(operator.trace());
+    }
 
     //TODO
     public static void inverse(){}
@@ -213,8 +220,6 @@ public class Main {
     public static void luDecomposition(){}
     public static void choleskyDecomposition(){}
     public static void determinant(){}
-    public static void trace(){}
-
 
     //handles initial inputs and what not
     public static double[][] matrixDims(){
