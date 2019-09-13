@@ -47,12 +47,30 @@ public class MatrixOperator implements MatrixOperations {
         return Math.sqrt(sum);
     }
 
-    public double lpNorm(){
-        return 0.0;
+    @Override
+    public double lpNorm(int p){
+        double sum = 0.0;
+
+        if(columns > 1){
+            throw new NumberFormatException("This function only operates on vectors (n x 1 matrices)");
+        }
+        if(p < 0){
+            throw new NumberFormatException("p needs to be 0 or greater");
+        }
+
+        for(int i = 0; i < rows; i++){
+            sum += Math.pow(Math.abs(matrix[i][0]),p);
+        }
+
+        return pthRoot(sum, p);
     }
 
     @Override
     public double trace() {
         return 0;
+    }
+
+    private double pthRoot(double base, int p){
+        return Math.pow(Math.E, Math.log(base) / p);
     }
 }
