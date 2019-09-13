@@ -196,6 +196,17 @@ public class Main {
         System.out.println(operator.matrixNorm());
     }
 
+    //need to commit and test
+    public static void lpNorm(){
+        Scanner reader = new Scanner(System.in);
+        double[][] matrix = MatrixGenerator.newMatrix(matrixDims());
+        printMatrix(matrix);
+        MatrixOperator operator = new MatrixOperator(matrix, matrix.length, matrix[0].length);
+        System.out.println("Enter p value: ");
+        int input = reader.nextInt();
+        System.out.println(operator.lpNorm(input));
+    }
+
     //TODO
     public static void inverse(){}
     public static void eigendecomposition(){}
@@ -203,7 +214,7 @@ public class Main {
     public static void choleskyDecomposition(){}
     public static void determinant(){}
     public static void trace(){}
-    public static void lpNorm(){}
+
 
     //handles initial inputs and what not
     public static double[][] matrixDims(){
