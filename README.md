@@ -1,15 +1,21 @@
-About:
-  The purpose of this project is to automate several processes one is likely to encounter in a linear algebra course. 
+## MatrixTools
+MatrixTools is a linear algebra library equipped with a basic user interface to aid students of linear algebra. The project is currently in progress, but includes a number of useful features. The program allows the the user to interactively reduce a matrix using Gaussian elimination or jump directly to reduced row echelon form. Other linear algebra operations are implemented such as norms, trace, matrix multiplication, and transpose. Matrix decompositions and other features are in progress. For fun, This program was built from the ground up. I wanted/want to implement as many features and algorithms myself as possible.
 
-  Eventually this project is intended to serve as a full linear algebra library, with a focus on aiding students of linear    
-  algebra.
+## Language and Tools (Current)
+- Java 8
+- IntelliJ IDE
+- JUnit 5
 
-Current Features:
-  (1) Reduces a random or custom matrix given a user's command
-  (2) Reduces a matrix directly to reduced row echelon form
-  (3) Transpose and norm of a matrix
+## Planned Improvements
+- Matrix inverse
+- Determinant
+- QR Decomposition
+- Eigen Decomposition
+- GUI
+- More tests
 
-
+## Author
+This program was built by me, Tucker Bullara. I'm a senior at UL Lafayette studying computer science and mathematics.
 
 
 
